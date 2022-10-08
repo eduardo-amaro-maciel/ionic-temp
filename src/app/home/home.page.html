@@ -1,20 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div style="font-size: 70px; display: flex; flex-direction: column; align-items: center;">
+    <span>⛅</span>
+    <span style="font-size: 40px;">Previsão do tempo</span>
   </div>
+  <ion-item class="container-input">
+    <ion-label position="floating">Latitude</ion-label>
+    <ion-input name="latitude" [(ngModel)]="latitude"></ion-input>
+  </ion-item>
+  <ion-item class="container-input">
+    <ion-label position="floating">Longitude</ion-label>
+    <ion-input name="longitude" [(ngModel)]="longitude"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="getLocation()">Send data</ion-button>
+
+  <ion-item-group [hidden]=ishidden>
+    <ion-item-divider>
+      <ion-label>Tempo : {{timeApi}}</ion-label>
+    </ion-item-divider>
+  
+    <ion-item>
+      <ion-label>Pressão do ar: {{air_pressure_at_sea_level}} hPa</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Temperatura do ar: {{air_temperature}} ºC</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fração de área de nuvem: {{cloud_area_fraction}} %</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Humidade relativa: {{relative_humidity}} %</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Direção do vento: {{wind_from_direction}} Graus</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Velocidade do vento: {{wind_speed}} m/s</ion-label>
+    </ion-item>
+  </ion-item-group>
 </ion-content>
+
+
